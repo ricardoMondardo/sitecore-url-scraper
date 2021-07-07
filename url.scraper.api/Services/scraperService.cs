@@ -30,7 +30,8 @@ namespace url.scraper.api.Services
             foreach (HtmlNode item in nodes)
             {
                 var src = item.Attributes.FirstOrDefault(x => x.Name.Equals("src"));
-                rListImages.Add(BaseUrl + src.Value);
+                if (src.Value.Contains("http")) rListImages.Add(string.Format("{0}/{1}", BaseUrl, src.Value));
+                else rListImages.Add( string.Format("{0}/{1}", BaseUrl, src.Value));
             }
 
             var nodesWods = document.DocumentNode.SelectSingleNode("//body").DescendantsAndSelf();

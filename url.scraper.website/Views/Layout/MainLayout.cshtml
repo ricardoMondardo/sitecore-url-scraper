@@ -4,11 +4,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Page scraper</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
-    <div>   
-        Hi
+    <label for="f-url">URL:</label>
+    <input id="input-url" type="text" value="www.google.com">
+    <br />
+    <button onclick="getInfo()">Ok</button>
+    <br />
+
+    <canvas id="myChart" style="width:100%;max-width:600px;margin:20px 0px 20px 0px"></canvas>
+
+    <br/>
+    <div id="grid-imgs">
+        ...
     </div>
+
     <script src="~/Assets/MainScraper.js"></script>
 </body>
 </html>
