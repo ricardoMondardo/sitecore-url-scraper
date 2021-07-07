@@ -53,8 +53,8 @@ namespace url.scraper.api.Services
 
             ResultScrape resultScrape = new ResultScrape();
 
-            resultScrape.LisWords = rlistWordsSorted.ToList();
-            resultScrape.LisImages =  rListImages;
+            resultScrape.ListWords = rlistWordsSorted.ToList();
+            resultScrape.ListImages =  rListImages;
 
             return resultScrape;
         }
