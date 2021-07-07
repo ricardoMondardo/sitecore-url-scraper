@@ -20,8 +20,10 @@ namespace url.scraper.api.Controllers
 
             var result = new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new StringContent(new JavaScriptSerializer().Serialize(
-                    new { data = dataInfo }), Encoding.UTF8, "application/json")
+                Content = new StringContent(
+                    new JavaScriptSerializer().Serialize(dataInfo), 
+                    Encoding.UTF8, 
+                    "application/json")
             };
             return result;
         }

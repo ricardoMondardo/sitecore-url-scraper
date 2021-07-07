@@ -1,10 +1,10 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.Script.Serialization;
+using url.scraper.api.Objects;
 
 namespace url.scraper.api.Services
 {
@@ -12,7 +12,7 @@ namespace url.scraper.api.Services
     {
         public ScraperService() { }
 
-        public async Task<List<string>> GetWordsAndImgs(string pageUrl)
+        public async Task<ResultScrape> GetWordsAndImgs(string pageUrl)
         {
 
             var BaseUrl = string.Format("https://{0}", pageUrl);
@@ -22,14 +22,41 @@ namespace url.scraper.api.Services
 
             var resp = await response.Content.ReadAsStringAsync();
 
-            var result = new List<string>()
+            var document = new HtmlDocument();
+            document.LoadHtml(resp);
+
+            HtmlNode[] nodes = document.DocumentNode.SelectNodes("//img/@src").ToArray();
+            var rListImages = new List<string>();
+            foreach (HtmlNode item in nodes)
             {
-                "aaa",
-                "vvvv",
-                BaseUrl,
-                resp
-            };
-            return result;
+                var src = item.Attributes.FirstOrDefault(x => x.Name.Equals("src"));
+                rListImages.Add(BaseUrl + src.Value);
+            }
+
+            var nodesWods = document.DocumentNode.SelectSingleNode("//body").DescendantsAndSelf();
+            var excludeTag = new List<string>() { "script", "style", "td" };
+            var rListWords= new List<string>();
+
+            foreach (HtmlNode node in document.DocumentNode.SelectNodes("//text()[normalize-space(.) != '']"))
+            {
+                if (!excludeTag.Contains(node.ParentNode.Name))
+                {
+                    var arrPhase = node.InnerText.Trim().Split(new[] { " " }, StringSplitOptions.None);
+                    foreach (var word in arrPhase)
+                    {
+                        rListWords.Add(word);
+                    }                    
+                }
+            }
+
+            var rlistWordsSorted = rListWords.OrderByDescending(x => x.Length).Take(10).ToArray();
+
+            ResultScrape resultScrape = new ResultScrape();
+
+            resultScrape.LisWords = rlistWordsSorted.ToList();
+            resultScrape.LisImages =  rListImages;
+
+            return resultScrape;
         }
     }
 }
