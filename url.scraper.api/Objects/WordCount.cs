@@ -5,9 +5,9 @@ using System.Web;
 
 namespace url.scraper.api.Objects
 {
-    public class ResultScrape
+    public class WordCount
     {
-        public List<WordCount> ListWords { get; set; }
-        public List<string> ListImages { get; set; }
+        public string word { get; set; }
+        public int count { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace url.scraper.api.Services
 
             var nodesWods = document.DocumentNode.SelectSingleNode("//body").DescendantsAndSelf();
             var excludeTag = new List<string>() { "script", "style", "td" };
-            var rListWords= new List<string>();
+            var rListWords= new List<WordCount>();
 
             foreach (HtmlNode node in document.DocumentNode.SelectNodes("//text()[normalize-space(.) != '']"))
             {
@@ -44,12 +44,17 @@ namespace url.scraper.api.Services
                     var arrPhase = node.InnerText.Trim().Split(new[] { " " }, StringSplitOptions.None);
                     foreach (var word in arrPhase)
                     {
-                        rListWords.Add(word);
+                        if (word.Length > 2)
+                        {
+                            var indexWord = rListWords.FindIndex(x => x.word.Equals(word));
+                            if (indexWord > -1) rListWords[indexWord].count = rListWords[indexWord].count + 1;
+                            else rListWords.Add(new WordCount() { word = word, count = 1 });
+                        }
                     }                    
                 }
             }
 
-            var rlistWordsSorted = rListWords.OrderByDescending(x => x.Length).Take(10).ToArray();
+            var rlistWordsSorted = rListWords.OrderByDescending(x => x.count).Take(10).ToArray();
 
             ResultScrape resultScrape = new ResultScrape();
 

@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\UrlScraperController.cs" />
+    <Compile Include="Objects\WordCount.cs" />
     <Compile Include="Objects\ResultScrape.cs" />
     <Compile Include="Pipelines\WebApi\RegisterWebApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
