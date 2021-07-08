@@ -7,7 +7,7 @@ namespace url.scraper.api.Objects
 {
     public class ResultScrape
     {
-        public List<WordCount> ListWords { get; set; }
         public List<string> ListImages { get; set; }
+        public List<WordCount> ListWords { get; set; }        
     }
 }
