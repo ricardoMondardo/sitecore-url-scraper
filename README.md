@@ -4,13 +4,6 @@
 
 ****
 
-1 Graph: top 10 used words
-
-2 All of the images used 
-* images that are set using JS, after page load are not listed. We could do that in a next release =)
-
-****
-
 # How to install:
 
 1 Install Sitecore 9.2.0 (rev. 002893)
