@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url.scraper.api", "url.scraper.api\url.scraper.api.csproj", "{5AE11CF7-C169-4520-A66F-95912C1B0013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url.scraper.website", "url.scraper.website\url.scraper.website.csproj", "{B8F285F8-0500-439E-97CD-112C48E78DDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "url.scraper.website", "url.scraper.website\url.scraper.website.csproj", "{2DE2DB96-9561-4A9F-A1A6-72C2E31A9F98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5AE11CF7-C169-4520-A66F-95912C1B0013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AE11CF7-C169-4520-A66F-95912C1B0013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AE11CF7-C169-4520-A66F-95912C1B0013}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8F285F8-0500-439E-97CD-112C48E78DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F285F8-0500-439E-97CD-112C48E78DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F285F8-0500-439E-97CD-112C48E78DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F285F8-0500-439E-97CD-112C48E78DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE2DB96-9561-4A9F-A1A6-72C2E31A9F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE2DB96-9561-4A9F-A1A6-72C2E31A9F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE2DB96-9561-4A9F-A1A6-72C2E31A9F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE2DB96-9561-4A9F-A1A6-72C2E31A9F98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
