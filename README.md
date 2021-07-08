@@ -12,7 +12,7 @@
 
 3 Import the package: \dist\Sitecore-itens\sitecore-items-and-project.zip
 
-4 Add new address on Host url-scraper.dev.local file;
+4 Add new address to Host url-scraper.dev.local file;
 * if you want see the page from web (CD).
 
 5 Bind the address url-scraper.dev.local to your sitecore instance.
