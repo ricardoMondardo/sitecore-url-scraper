@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width" />
     <title>Page scraper</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="~/assets/MainScraper.css" type="text/css" />
 </head>
 <body>
-    <label for="f-url">URL:</label>
-    <input id="input-url" type="text" value="www.google.com">
-    <br />
-    <button onclick="getInfo()">Ok</button>
-    <br />
 
-    <canvas id="myChart" style="width:100%;max-width:600px;margin:20px 0px 20px 0px"></canvas>
+    <div class="c-main-wrapper">
+        <div class="c-main-wrapper--input">
+            <label for="f-url">URL:</label>
+            <input id="input-url" type="text" value="www.google.com">
+            <button class="c-main-wrapper--button" onclick="getInfo()">Ok</button>
+        </div>
 
-    <br/>
-    <div id="grid-imgs">
-        ...
+        <canvas id="myChart" class="c-main-wrapper--canvas"></canvas>       
+        <div id="grid-imgs" class="c-main-wrapper--imgs-grid"></div>
     </div>
+    
 
     <script src="~/Assets/MainScraper.js"></script>
 </body>

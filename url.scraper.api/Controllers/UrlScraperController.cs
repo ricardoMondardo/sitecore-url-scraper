@@ -14,9 +14,8 @@ namespace url.scraper.api.Controllers
         public async Task<HttpResponseMessage> Scraper(string url)
         {
 
-            ScraperService scraperService = new ScraperService();
-
-            var dataInfo = await scraperService.GetWordsAndImgs(url);
+            ScraperService scraperService = new ScraperService(url);
+            var dataInfo = await scraperService.GetWordsAndImgs();
 
             var result = new HttpResponseMessage(HttpStatusCode.OK)
             {

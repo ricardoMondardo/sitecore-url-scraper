@@ -42,7 +42,7 @@ async function CallApi() {
             options: {
                 legend: { display: false },
                 scales: {
-                    yAxes: [{ ticks: { min: MinValue, max: MaxValue + 10 } }],
+                    yAxes: [{ ticks: { min: MinValue, max: MaxValue } }],
                 }
             }
         });
@@ -51,8 +51,7 @@ async function CallApi() {
         GridImgs.innerHTML = "";
         for (let [key, value] of Object.entries(data.ListImages)) {
             GridImgs.innerHTML +=
-                `<img src=${value} width=50px; height=50px; style="border:black;border-style:double;">
-            <br/>`;
+                `<img src=${value}>`;
             console.log(value);
         }
 

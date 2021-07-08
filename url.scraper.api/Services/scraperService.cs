@@ -4,49 +4,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web.UI.HtmlControls;
 using url.scraper.api.Objects;
 
 namespace url.scraper.api.Services
 {
     public class ScraperService
     {
-        public ScraperService() { }
+        private string _baseUrl;
+        public ScraperService(string pageUrl) {
+            _baseUrl = pageUrl.Contains("http") ? pageUrl : string.Format("https://{0}", pageUrl);
+        }
 
-        public async Task<ResultScrape> GetWordsAndImgs(string pageUrl)
+        public async Task<ResultScrape> GetWordsAndImgs()
         {
-            var baseUrl = pageUrl.Contains("http") ? pageUrl : string.Format("https://{0}", pageUrl);
-
+            
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(baseUrl);
-
+            HttpResponseMessage response = await client.GetAsync(_baseUrl);
             var resp = await response.Content.ReadAsStringAsync();
 
             var document = new HtmlDocument();
             document.LoadHtml(resp);
-
-
-            
+                       
+            ResultScrape resultScrape = new ResultScrape();
             var rlistWordsSorted = GetWords(document).OrderByDescending(x => x.count).Take(10).ToArray();
 
-            ResultScrape resultScrape = new ResultScrape();
-
-            resultScrape.ListImages = GetImages(document, baseUrl);
+            resultScrape.ListImages = GetImages(document);
             resultScrape.ListWords = rlistWordsSorted.ToList();
 
             return resultScrape;
         }
 
-        private List<String> GetImages(HtmlDocument document, string baseUrl)
+        private List<string> GetImages(HtmlDocument document)
         {
-            HtmlNode[] nodes = document.DocumentNode.SelectNodes("//img/@src").ToArray();
+            List<string> rListImages = new List<string>();
+
+            var imgSrcs = GetItensByAttribute(document, "src");                                    
+            rListImages.AddRange(FixHttpUrls(imgSrcs));
+
+            var imgSrcSets = GetItensByAttribute(document, "srcset");
+            rListImages.AddRange(FixHttpUrls(imgSrcSets));
+
+            return rListImages;
+        }
+
+        private List<string> FixHttpUrls(List<string> listStrs)
+        {
             var rListImages = new List<string>();
-            foreach (HtmlNode item in nodes)
+            foreach (string src in listStrs)
             {
-                var src = item.Attributes.FirstOrDefault(x => x.Name.Equals("src"));
-                if (src.Value.Contains("http")) rListImages.Add(src.Value);
-                else rListImages.Add(string.Format("{0}/{1}", baseUrl, src.Value));
+                if (src.Contains("http")) rListImages.Add(src);
+                else rListImages.Add(string.Format("{0}/{1}", _baseUrl, src));
             }
             return rListImages;
+        }
+
+        private List<string> GetItensByAttribute(HtmlDocument document, string attr)
+        {
+            return document.DocumentNode.Descendants("img")
+                .Select(e => e.GetAttributeValue(attr, null))
+                .Where(s => !String.IsNullOrEmpty(s))
+                .ToList();
         }
 
         private List<WordCount> GetWords(HtmlDocument document)
