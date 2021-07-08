@@ -1,6 +1,4 @@
-﻿console.log("Hi")
-
-async function CallApi() {
+﻿async function CallApi() {
 
     const requestOptions = {
         method: "GET",
