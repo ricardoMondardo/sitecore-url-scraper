@@ -28,3 +28,9 @@
     border: dashed;
     border-color: black;
 }
+
+.c-main-wrapper--msg-call {
+    margin-top: 10px;
+    font-weight: bolder;
+    text-align: center;
+}
