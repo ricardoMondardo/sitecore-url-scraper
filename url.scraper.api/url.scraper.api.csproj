@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="App_Config\Include\UrlScraper\UrlScraper.api.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\DistributionRelease.pubxml" />
     <None Include="Properties\PublishProfiles\LocalRelease.pubxml" />
   </ItemGroup>
   <PropertyGroup>

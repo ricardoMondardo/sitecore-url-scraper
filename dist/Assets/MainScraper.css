@@ -1,0 +1,36 @@
+﻿.c-main-wrapper {
+    border-style:double;
+    border-color: black;
+    padding: 10px
+}
+
+
+.c-main-wrapper--input {
+    text-align: center
+}
+
+
+.c-main-wrapper--button {
+    width: 60px
+}
+
+.c-main-wrapper--canvas {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0px 20px 0px;
+}
+
+
+.c-main-wrapper--imgs-grid > img {
+    width: 25%;
+    height: auto;
+    margin: 0px 10px 10px 0px;
+    border: dashed;
+    border-color: black;
+}
+
+.c-main-wrapper--msg-call {
+    margin-top: 10px;
+    font-weight: bolder;
+    text-align: center;
+}

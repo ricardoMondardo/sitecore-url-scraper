@@ -75,6 +75,7 @@
     <Content Include="Assets\MainScraper.js" />
     <None Include="packages.config" />
     <Content Include="Views\Layout\MainLayout.cshtml" />
+    <None Include="Properties\PublishProfiles\DistributionRelease.pubxml" />
     <None Include="Properties\PublishProfiles\LocalRelease.pubxml" />
   </ItemGroup>
   <PropertyGroup>

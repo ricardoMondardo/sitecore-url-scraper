@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page scraper</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="~/assets/MainScraper.css" type="text/css" />
+</head>
+<body>
+
+    <div class="c-main-wrapper">
+        <div class="c-main-wrapper--input">
+            <label for="f-url">URL:</label>
+            <input id="input-url" type="text" value="www.google.com">
+            <button class="c-main-wrapper--button" onclick="getInfo()">Ok</button>
+        </div>
+
+        <div id="msg-call" class="c-main-wrapper--msg-call"></div>
+        <canvas id="chart-words" class="c-main-wrapper--canvas"></canvas>
+        <div id="grid-imgs" class="c-main-wrapper--imgs-grid"></div>
+    </div>
+    
+
+    <script src="~/Assets/MainScraper.js"></script>
+</body>
+</html>
