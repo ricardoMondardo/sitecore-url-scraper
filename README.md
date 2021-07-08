@@ -9,12 +9,11 @@ Sitecore version: Sitecore.NET 9.2.0 (rev. 002893)
 1 Graph: top 10 used words
 
 2 All of the images used 
-* images that are set using JS, after page load are not listed 
-* for this version, we could do that in a next release =)
+* images that are set using JS, after page load are not listed. We could do that in a next release =)
 
 ****
 
-** How to install:
+# How to install:
 
 1 Install Sitecore 9.2.0 (rev. 002893)
 
@@ -28,14 +27,16 @@ Sitecore version: Sitecore.NET 9.2.0 (rev. 002893)
 5 Bind the address url-scraper.dev.local to your sitecore instance.
 * if you want see the page from web (CD).
 
-** Done.
+****
 
-** How to test it:
+# How to test it:
 
 Once you got all set up, go to Sitecore/Content/RootSite/ScraperPage
 and see the preview.
 
-** About the extra Dll on this project:
+****
+
+# About the extra Dll on this project:
 
 * All of those come from sitecore.
 
